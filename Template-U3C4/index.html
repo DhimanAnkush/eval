@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <style>
+#container{
+  display: flex;
+  height: 600px;
+}
+#sidebar{
+  flex:2;
+  border: solid 1px black;
+}
+#main{
+  flex: 8;
+  border: solid 1px black;
+}
+
+
+  </style>
+
+  <body>
+    <div id="container">
+      <div id="sidebar">
+        <!--DO NOT CHANGE THIS ID's-->
+        <!--Append the horizontal navbar(sidebar) here only-->
+        <div>Menu</div>
+        <div>Login</div>
+        <div>Sign up</div>
+        <input type="text" id="searchbar" />
+        <button onclick="apidata()">Search</button>
+        <div>News</div>
+        
+        <div>API</div>
+
+
+      </div>
+
+      <div id="main">
+        <!--DO NOT CHANGE THIS ID's-->
+        <!--Append top headlines from india here only-->
+        
+      </div>
+    </div>
+    
+  </body>
+</html>
+
+<script>
+  async function apidata() {
+
+    try{
+      var res = await fetch("https://shrouded-earth-23381.herokuapp.com/api/headlines/india");
+      let data  = await res.json();
+
+      console.log(data)
+
+      appendData(data);
+    }
+    catch(err){
+      console.log(err.message)
+    }
+  }
+
+ 
+
+  function appendData(data) {
+    data.forEach((data) => {
+
+      
+
+    })
+  }
+
+</script>
+
+  <!-- <script type="module">
+    import sidebar from "/components/sidebar.js"
+
+    import {apiCall} from "/script/main.js"
+
+    let sidebar_div = document.getElementById('sidebar')
+
+    sidebar_div.innerHTML = sidebar();
+
+    let res = await apiCall("https://shrouded-earth-23381.herokuapp.com/api/headlines/india");
+    console.log("res:",res);
+
+
+  </script>  -->
+
